@@ -145,7 +145,7 @@ class DoctorFixture(unittest.TestCase):
         self.gradle_home.mkdir()
         self.vault = Path(self.tmp.name) / "vault-missing"
 
-        # A PATH with nothing but a fake `just`, `python3`, `kontor`, and (unless a test overrides
+        # A PATH with nothing but a fake `just`, `python3`, and (unless a test overrides
         # it) no `java` at all, so java resolution is fully driven by JAVA_HOME/JAVA*_HOME/gradle
         # jdks rather than by whatever is really installed on this machine.
         self.fake_bin = Path(self.tmp.name) / "bin"
@@ -154,9 +154,6 @@ class DoctorFixture(unittest.TestCase):
             script = self.fake_bin / name
             script.write_text(f"#!/bin/sh\necho '{out}'\n")
             script.chmod(script.stat().st_mode | stat.S_IEXEC | stat.S_IXGRP | stat.S_IXOTH)
-        kontor = self.fake_bin / "kontor"
-        kontor.write_text("#!/bin/sh\necho kontor 1.0.0\n")
-        kontor.chmod(kontor.stat().st_mode | stat.S_IEXEC | stat.S_IXGRP | stat.S_IXOTH)
         # `diff` and `git` are the real system tools the checks shell out to -- linked in by their
         # known absolute paths rather than opening the whole real PATH, which would let a real
         # `java` leak back in and defeat the "no java anywhere" fixtures below.

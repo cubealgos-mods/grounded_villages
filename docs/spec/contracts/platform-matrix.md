@@ -346,7 +346,7 @@ design, not a maintained compatibility list.
 
 ## CI matrix, one job per shipped combination
 
-Woodpecker: `./gradlew chiseledBuild` — a plain aggregate task this repository's root
+Checked locally: `./gradlew chiseledBuild` — a plain aggregate task this repository's root
 `stonecutter.gradle.kts` registers itself (`tasks.register("chiseledBuild") {
 dependsOn(stonecutter.tasks.named("buildAndCollect")) }`), invoking each node's own
 `buildAndCollect`-shaped task. Confirmed this is not created automatically by applying the
