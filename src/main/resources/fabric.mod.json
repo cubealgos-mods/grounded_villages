@@ -9,7 +9,8 @@
   ],
   "contact": {
     "homepage": "https://modrinth.com/mod/grounded-villages",
-    "sources": "https://github.com/cubealgos/grounded_villages"
+    "sources": "https://github.com/cubealgos-mods/grounded_villages",
+    "issues": "https://github.com/cubealgos-mods/grounded_villages/issues"
   },
   "license": "MIT",
   "environment": "server",
