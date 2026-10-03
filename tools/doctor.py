@@ -448,7 +448,6 @@ def main(argv: list[str] | None = None) -> int:
     results += [
         check_tool("just", "just", "--version"),
         check_tool("python3", "python", "--version"),
-        check_tool("kontor", None),
         check_map(root),
         check_wrapper(root),
         check_stonecutter_version(root),
