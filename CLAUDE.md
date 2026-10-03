@@ -19,15 +19,17 @@ own.
 | touch the config file | `docs/spec/domains/config.md`, `docs/spec/decisions/DEC-008-config-file.md` |
 | add a loader or Minecraft version | `docs/spec/contracts/platform-matrix.md`, `docs/spec/04-architecture.md` `ARCH-DEC-002` |
 | add a dependency | `docs/spec/decisions/DEC-003-licence.md` (MIT, no CLA) |
-| commit | scope `grounded_villages`, the ticket key (`GV-N`) in the subject |
+| commit | scope `grounded_villages`, the GitHub issue number in the subject, `(#N)`; old gitkontor keys (`GV-N`) stay valid in history |
 
 ## Working here
 
 ```
-kontor claim GV-N
-kontor branch new GV-N <slug>
+gh issue view N
+git switch -c <type>/N-<slug> origin/development
 just check
 ```
+
+Work is tracked in GitHub issues: one issue per change, one branch `<type>/N-<slug>` off `development`, one pull request per issue, plain merge. The `gitkontor/data` branch is the archive of the former ticket system (keys `GV-N`); it stays untouched and is no longer written to.
 
 `just --list` shows the task surface; `just spec-sync` refreshes `docs/spec/` from the vault;
 `just map` regenerates the map.
